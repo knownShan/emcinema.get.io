@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoir - Short Film</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logongMult-removebg-preview.png">
+</head>
+
+<body>
+    <header class="header" id="navbar">
+        <a href="index.html" class="logo">EMCinema</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+    </header>
+    <!-- Video Player Section -->
+    
+    <div class="video-container">
+        <video controls poster="poster.jpg">
+            <source src="Memoir.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Film Information Section -->
+    <div class="info-container">
+        <h1>Memoir</h1>
+        <p><strong>Section:</strong> BSEMC-DAT 2A</p>
+        <p><strong>Produced by:</strong> ZABARA PRODUCTIONS</p>
+        <p><strong>Release Date:</strong> June 7, 2024</p>
+        <p><strong>Duration:</strong> 9 minutes 24 seconds</p>
+
+    </div>
+
+    <div class="rating-container">
+        <p>Rate this film:</p>
+        <div class="stars">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <p id="rating-value">Rating: 0</p>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const stars = document.querySelectorAll(".star");
+    const ratingValueDisplay = document.getElementById("rating-value");
+
+    stars.forEach((star, index) => {
+        star.addEventListener("click", () => {
+            // Clear all previous selections
+            stars.forEach(s => s.classList.remove("selected"));
+            // Mark selected stars
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add("selected");
+            }
+            // Update the rating value
+            ratingValueDisplay.textContent = `Rating: ${index + 1}`;
+        });
+    });
+});
+</script>
+</html>
